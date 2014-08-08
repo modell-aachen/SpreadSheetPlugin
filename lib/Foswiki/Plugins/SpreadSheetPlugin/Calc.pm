@@ -136,7 +136,7 @@ sub _doCalc {
     $text =~ s/([\(\)])/_addNestingLevel($1, \$level)/ge;
     $text = _doFunc( "MAIN", $text );
 
-    if ( ( $rPos >= 0 ) && ( $cPos >= 0 ) ) {
+    if ( defined($rPos) && defined($cPos) && $rPos >= 0 && $cPos >= 0 ) {
 
         # update cell in table matrix
         $tableMatrix[$rPos][$cPos] = $text;
